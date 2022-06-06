@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ДЗ №4</title>
+</head>
+<body>
+    <script>
+        function formula(x) {
+            return Math.sqrt(x) / (x + 1);
+        }
+
+        let result = 0;
+        let i = 1;//счетчик
+        let x = Math.round(((i + 0.2) * 10) / 10);//шаг
+    
+      for(; i <= 3; i += x) {
+          result = formula(i);
+          console.log(result + " ");//вывод промежуточных результатов
+      }
+
+        alert("Результат: " + result);
+    </script>
+    
+</body>
+</html>

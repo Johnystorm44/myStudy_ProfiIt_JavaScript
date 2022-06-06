@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Month Day</title>
+</head>
+<script>
+    //ввод
+    let userMonth = +prompt("Введите месяц: ");
+    let userYear = +prompt("Введите год");
+    //решение
+    let date = new Date(userYear, userMonth, 0);
+    //вывод
+    console.log("Последнее число месяца: " + date.getDate());
+</script>
+<body>
+    
+</body>
+</html>

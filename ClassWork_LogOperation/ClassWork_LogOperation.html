@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Классная работа</title>
+    <script>
+        //ввод данных
+        let firstNumber = +prompt("Введите первое число: ");
+        let secNumber = +prompt("Введите второе число: ");
+
+        //решение
+        if (firstNumber < secNumber) {
+            firstNumber = Math.pow(firstNumber, 4);
+            secNumber = Math.pow(secNumber, 3);
+        } else {
+            firstNumber = Math.pow(firstNumber, 3);
+            secNumber = Math.pow(secNumber, 4);
+        }
+
+        console.log("Первое число: " + firstNumber + " " + "Второе число: " + secNumber);
+
+        //вывод
+        if(firstNumber > secNumber) {
+            console.log("Первое число больше: ");
+        } else if(firstNumber < secNumber) {
+            console.log("второе число больше: ");
+        } else {
+            console.log("Числа равны.")
+        }
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

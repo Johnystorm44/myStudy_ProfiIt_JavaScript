@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Доп.задание1</title>
+    <script>
+        let numberA = +prompt("Введите число А: ");
+        let numberB = +prompt("Введите число B: ");
+        let numberC = +prompt("Введите число C: ");
+        let middleNum;
+        let maxResult;
+        let minResult;
+        
+        //решение
+        if(numberA > numberB && numberA > numberC) {
+            maxResult = numberA;
+        } else if(numberB > numberA && numberB > numberC) {
+            maxResult = numberB;
+        } else if(numberC > numberA && numberC > numberB){
+            maxResult = numberC;
+        } else if(numberA == numberB && numberA == numberC) {
+            console.log('Числа одинаковы');
+            maxResult = numberA;
+        }
+
+        if(numberA < numberB && numberA < numberC) {
+            minResult = numberA;
+        } else if (numberB < numberA && numberB < numberC) {
+            minResult = numberB;
+        } else if (numberC < numberA && numberC < numberB){
+            minResult = numberC;
+        } else if(numberA == numberB && numberA == numberC) {
+            console.log('Числа одинаковы');
+            minResult = numberA;
+        }
+
+        if(numberA > numberB && numberA > numberC) {
+            if(numberC > numberB) {
+                middleNum = numberC;
+            } else {
+                middleNum = numberB;
+            }
+        }
+        if(numberB > numberA && numberB > numberC) {
+            if(numberA > numberC) {
+                middleNum = numberA;
+            } else {
+               middleNum = numberC;
+            }
+        }
+        if(numberC > numberA && numberC > numberB) {
+            if(numberA > numberB) {
+                middleNum = numberA;
+            } else {
+                middleNum = numberB;
+            }
+        }
+
+        let firstResult = (maxResult - minResult) * 2;
+        let secResult = minResult * middleNum;
+        
+        if(firstResult > secResult) {
+            console.log("Результат удвоенной разности наибольшего и наименьшего больше.");
+        } else if (firstResult < secResult) {
+            console.log("Результат произведения меньшего и среднего числа больше.");
+        } else {
+            console.log("Результаты равны");
+        }       
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

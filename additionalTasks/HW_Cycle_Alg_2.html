@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HW_AT_CYCLE_AG_2</title>
+    <script>
+        function formula (num) {
+            return Math.pow(-1, num) / (num * (2 * num + 1));
+        }
+
+        let numE = +prompt ("Введите заданное число Е: ");
+        let num = 1;
+        let result = 0;
+        let temp;
+        let countOFCycle = 0;
+
+        do {
+            result += formula(num);
+            temp = formula(num);
+            num++;
+            countOFCycle++;
+        }while (Math.abs(temp) > numE);
+
+        console.log("Результат суммы: " + result + " Заданное Е: " + numE + " Кол-во циклов: " + countOFCycle);
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

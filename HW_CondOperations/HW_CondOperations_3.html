@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Задание 3</title>
+    <script>
+        let sideA = +prompt("Введите сторону треугольника А: ");
+        let sideB = +prompt("Введите сторону треугольника B: ");
+        let sideC = +prompt("Введите сторону треугольника C: ");
+
+        if(sideA + sideB > sideC && sideB + sideC > sideA && sideA + sideC > sideB) {
+            document.write("<h1>Треугольник АВС существует.</h1>")
+            if(Math.pow(sideA, 2) + Math.pow(sideB, 2) == Math.pow(sideC, 2) || Math.pow(sideB, 2) + Math.pow(sideC, 2) == Math.pow(sideA, 2) || 
+            Math.pow(sideA, 2) + Math.pow(sideC, 2) == Math.pow(sideB, 2)) {
+                document.write("<h1>Треугольник АВС прямоугольный.</h1>")
+            } else {
+                document.write("<h1>Треугольник АВС не прямоугольный.</h1>")
+            }
+        } else {
+            document.write("<h1>Треугольник АВС не существует.</h1>")
+        }
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

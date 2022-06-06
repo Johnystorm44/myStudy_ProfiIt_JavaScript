@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Объем и площадь полной поверхности конуса</title>
+</head>
+<script>
+    'use strict';
+    //ввод данных
+    let baseArea = +prompt("Введите площадь основания конуса: ");
+
+    //решение
+    let radius = Math.sqrt(baseArea / Math.PI);
+    let diameter = radius * 2;
+    let h = diameter;//по условию задачи
+    let genCone = Math.sqrt(Math.pow(radius, 2) + Math.pow(h, 2)); //образующая конуса
+    let sideArea = Math.PI * radius * genCone;//площадь боковой поверхности
+
+    let totalVolume = 1 / 3 * Math.PI * Math.pow(radius, 2) * h;
+    let totalArea = baseArea + sideArea;
+
+    //вывод
+    document.write("<h1>Объем полной поверхности конуса: " + totalVolume.toFixed(3) + "</h1>");
+    document.write("<h1>Площадь полной поверхности конуса: " + totalArea.toFixed(3) + "</h1>");
+
+</script>
+<body>
+    
+</body>
+</html>

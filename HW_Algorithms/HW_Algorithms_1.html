@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Объем и площадь полого цилиндра</title>
+    <script>
+        //ввод данных
+        let R = +prompt("Введите внешний радиус: ");
+        let r = +prompt("Введите внутренний радиус: ");
+
+        //решение
+        let h = R + r; //высота
+        let V = Math.PI * (Math.pow(R, 2) - Math.pow(r, 2)) * h;
+        let S = 2 * Math.PI * (Math.pow(R, 2) - Math.pow(r, 2)) + 2 * Math.PI * (R + r) * h;
+
+        //вывод
+        document.write("<h1>Объем полого цилиндра: " + V.toFixed(3) + "</h1>");
+        document.write("<h1>Общая площадь полого цилиндра: " + S.toFixed(3) + "</h1>");
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

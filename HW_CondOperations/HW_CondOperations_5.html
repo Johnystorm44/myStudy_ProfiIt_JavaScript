@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Задание 5</title>
+    <script>
+        //ввод
+        let numberX = +prompt("Введите число Х: ");
+        let numberY;
+        //решение
+        if (numberX <= -1) {
+            numberY = Math.pow(-numberX, 2) - (4 * numberX) - 3;
+        }
+        if(numberX > -1 && numberX <= 1) {
+            numberY = numberX + 1;
+        }
+        if(numberX > 1) {
+            numberY = 2 / numberX;
+        }
+        //вывод
+        console.log("Результат: " + numberY);
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

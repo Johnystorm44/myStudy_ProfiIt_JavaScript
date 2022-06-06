@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HW_AT_4_CycleAlg</title>
+</head>
+<body>
+    <script>
+        let sum = 0;
+        let count = 0;
+
+        for(let i = 3672; i <= 9117; i++) {
+            if (i % 3 == 2 && i % 5 == 4) {
+                sum += i;
+                count++;
+            }
+        }
+        console.log("Сумма чисел равна: " + sum + " Кол-во чисел: " + count);
+
+    </script>
+</body>
+</html>

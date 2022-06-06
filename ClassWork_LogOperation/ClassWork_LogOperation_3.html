@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Площадь круга</title>
+    <script>
+        //ввод
+        let x1 = +prompt("Введите координату х точки А: ");
+        let y1 = +prompt("Введите координату у точки А: ");
+        let x2 = +prompt("Введите координату х точки В: ");
+        let y2 = +prompt("Введите координату y точки В: ");
+        let x3 = +prompt("Введите координату х точки C: ");
+        let y3 = +prompt("Введите координату х точки C: ");
+
+        //решение
+        let AB = Math.sqrt(Math.pow(x2 - x1),2) + Math.pow((y2 - y1),2);
+        let BC = Math.sqrt(Math.pow(x3 - x2),2) + Math.pow((y3 - y2),2);
+        let AC = Math.sqrt(Math.pow(x3 - x1),2) + Math.pow((y3 - y1),2);
+        let OB = Math.sqrt(Math.pow(x2,2) + Math.pow(y2,2));
+
+        let squareAB = Math.PI * Math.pow(AB, 2);
+        let squareBC = Math.PI * Math.pow(BC, 2);
+        let squareAC = Math.PI * Math.pow(AC, 2);
+        let squareOB = (Math.pow(OB,2) / 4) * Math.PI;
+
+        if(squareAB > squareBC && squareAB > squareAC && squareAB > squareOB) {
+            console.log("Площадь круга АВ больше.");
+        } else if(squareAC > squareAB && squareAC > squareBC && squareAC > squareOB) {
+            console.log("Площадь круга АС больше.");
+        } else if(squareBC > squareAB && squareBC > squareAC && squareBC > squareOB) {
+            console.log("Площадь круга ВС больше.");
+        } else {
+            console.log("Площадь круга OB больше");
+        }
+        
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

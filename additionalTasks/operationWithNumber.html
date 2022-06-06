@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Operations witn number</title>
+
+    <script>
+        'use strict';
+        //ввод исходных данных
+        let mainNumber = prompt("Введите строку: ");
+
+        //решение
+        let dlina = mainNumber.length;
+        alert("Длина строки: " + dlina);
+        let firstNumber = Math.floor (+mainNumber / 10 ** (dlina - 1));
+        alert(firstNumber);
+        let lastNumber = +mainNumber % 10;
+        alert(lastNumber);
+
+        let sum = firstNumber + lastNumber;
+        let resid = firstNumber - lastNumber;
+        let prod = firstNumber * lastNumber;
+        let znach1 = Math.floor(firstNumber / lastNumber);
+        let znach2 = firstNumber % lastNumber;
+
+        //вывод
+        alert()
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Задание 2</title>
+    <script>
+        //ввод
+        let x1 = +prompt("Введите координату x точки А: ");
+        let y1 = +prompt("Введите координату y точки А: ");
+        let x2 = +prompt("Введите координату x точки B: ");
+        let y2 = +prompt("Введите координату y точки B: ");
+
+        //решение
+        function quarterA(x,y) {
+            if(x1 > 0 && y1 > 0) {
+                console.log("Точка А находится в первой четверти.");
+            } else if (x1 < 0 && y1 > 0) {
+                console.log("Точка А находится в второй четверти.");
+            } else if (x1 < 0 && y1 < 0) {
+                console.log("Точка А находится в третьей четверти");
+            } else if (x1 > 0 && y1 < 0){
+                console.log("Точка А находится в четвертой четверти");
+            } else if (x1 == 0 && y1 != 0) {
+                console.log("Точка А находится на оси OY");
+            } else {
+                console.log("Точка А находится на оси OX ");
+            }
+        }
+
+        function quarterB(x, y) {
+            if(x2 > 0 && y2 > 0) {
+                console.log("Точка B находится в первой четверти.");
+            } else if (x2 < 0 && y2 > 0) {
+                console.log("Точка B находится в второй четверти.");
+            } else if (x2 < 0 && y2 < 0) {
+                console.log("Точка B находится в третьей четверти");
+            } else if (x2 > 0 && y2 < 0){
+                console.log("Точка B находится в четвертой четверти");
+            } else if (x2 == 0 && y2 != 0) {
+                console.log("Точка B находится на оси OY");
+            } else {
+                console.log("Точка B находится на оси OX ");
+        }
+    }
+
+        let vectorLengthA = Math.sqrt(Math.pow(x1, 2) + Math.pow(y1, 2));
+        let vectorLengthB = Math.sqrt(Math.pow(x2, 2) + Math.pow(y2, 2));
+
+        //вывод
+        quarterA(x1,y1);
+        quarterB(x2,y2);
+
+        if(vectorLengthA > vectorLengthB) {
+            console.log("Точка А дальше от начала координат.");
+        } else {
+            console.log("Точка В дальше от начала координат");
+        }
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

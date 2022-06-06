@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Домашнее задание 1</title>
+    <script>
+        //vvod
+        let x1 = +prompt("Введите координату х точки А: ");
+        let y1 = +prompt("Введите координату у точки А: ");
+        let x2 = +prompt("Введите координату х точки В: ");
+        let y2 = +prompt("Введите координату y точки В: ");
+        let x3 = +prompt("Введите координату х точки C: ");
+        let y3 = +prompt("Введите координату y точки C: ");
+
+        //решение
+        let OA = Math.sqrt(Math.pow(x1, 2) + Math.pow(y1, 2));
+        let OB = Math.sqrt(Math.pow(x2, 2) + Math.pow(y2, 2));
+        let AC = Math.sqrt(Math.pow(x3 - x1,2) + Math.pow(y3 - y1,2));
+        let BC = Math.sqrt(Math.pow(x3 - x2,2) + Math.pow(y3 - y2,2));
+
+        let squareOA = Math.PI * Math.pow(OA,2);
+        let squareOB = Math.pow(OB, 2);
+        let squareACBC = AC * BC;
+
+        //вывод
+        document.write("<h1>Площадь круга: " + squareOA.toFixed(3) + " Площадь квадрата: " + squareOB.toFixed(3) + " Площадь прямоугольника: " + squareACBC.toFixed(3) + "</h1>");
+
+        if(squareOA > squareOB && squareOA > squareACBC) {
+            document.write("<h1>Площадь круга с радиусом ОА больше.</h1>");
+        } else if (squareOB > squareOA && squareOB > squareACBC) {
+            document.write("<h1>Площадь квадрата с стороной ОВ больше.</h1>");
+        } else {
+            document.write("<h1>Площадь прямоугольника с сторонами АС и ВС больше.</h1>");
+        }
+
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

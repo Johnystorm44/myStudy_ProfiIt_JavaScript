@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ДЗ №2</title>
+</head>
+<body>
+    <script>
+        function formula(k) {
+            return 4 * k / (Math.pow(k,2) + 8 * Math.sqrt(k));
+        }
+
+        let E = +prompt("Введите проверочное число Е: ");
+        let k = 1;//счетчик цикла
+
+        let temp = formula(k);//первый член последовательности
+        let result = 0;//начальная сумма
+
+        while(temp > E) {
+            if(E <= 0) {
+                break;
+            }
+            if(isNaN(E)) {
+                break;
+            }
+            k++;
+            temp = formula(k);
+            result += temp;   
+        }
+
+        console.log("Проверочное число Е: " + E + " Результат: " + result + " Счетчик К: " + k);
+    </script>
+</body>
+</html>

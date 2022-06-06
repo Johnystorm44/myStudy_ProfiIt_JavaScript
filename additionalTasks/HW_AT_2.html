@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Задание про кирпич</title>
+    <script>
+        let sizeA = +prompt("Введите размер ребра А: ");
+        let sizeB = +prompt("Введите размер ребра B: ");
+        let sizeC = +prompt("Введите размер ребра C: ");
+        let sizeX = +prompt("Введите размер отверстия X: ");
+        let sizeY = +prompt("Введите размер отверстия Y: ");
+
+        if(sizeA <= sizeX && sizeB <= sizeY || sizeA <= sizeX && sizeC <= sizeY || sizeB <= sizeX && sizeC <= sizeY 
+        || sizeA <= sizeY && sizeB <= sizeX || sizeA <= sizeY && sizeC <= sizeX || sizeB <= sizeY && sizeC <= sizeX) {
+            console.log("Кирпич пройдет.");
+        } else {
+            console.log("Кирпич не пройдет.");
+        }
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

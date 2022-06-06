@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Призма и цилиндр</title>
+    <script>
+        //ввод
+        let sideA = +prompt("Введите сторону правильного шестиугольника: ");
+        let heightCylindre = 2 * sideA;
+        let heightPrism = 2 * sideA;
+
+        //решение
+        let volumePrism = (3 * Math.sqrt(3)) / 2 * Math.pow(sideA,2) * heightPrism;
+        let radiusCylindre = Math.sqrt(3) / 2 * sideA;
+        let volumeCylindre = Math.PI * Math.pow(radiusCylindre, 2) * heightCylindre;
+        let result = (volumePrism - volumeCylindre) / volumePrism * 100;
+
+        //вывод
+        console.log("Объем призмы: " + volumePrism);
+        console.log("Объем цилиндра: " + volumeCylindre);
+        console.log("Процент отходов: " + result.toFixed(2) + "%");
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

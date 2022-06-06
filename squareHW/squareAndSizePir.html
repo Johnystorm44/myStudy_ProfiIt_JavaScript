@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ru">
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Объем и площадь</title>
+<script>
+    //Ввод исходных данных
+    let S = +prompt("Введите значение площади круга: ");
+
+    //Решение
+    let radius = Math.sqrt(S / Math.PI);
+    let A = 2 * radius * Math.sin(36 * Math.PI / 180);
+    let perimeterH = 5 * A;
+    let baseS = 5 / 2 * radius * A;
+    let V = 1 / 3 * baseS * perimeterH;
+    let bokS = 5 / 2 * A * Math.sqrt(Math.pow(perimeterH, 2) + Math.pow(radius, 2));
+
+    //вывод
+    alert("Объем пирамиды = " + V + "\nПлощадь боковых сторон пирамиды = " + bokS);
+</script>
+</head>
+
+<body>
+
+</body>
+
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>         
+        let a = NaN;
+        while (isNaN(a)){
+        a= Number(prompt("Введите значение А"));
+        if ( isNaN(a) || !Number.isInteger(a) )   {
+        alert('Нужно ввести целое число');  
+        a = NaN;
+        }}
+
+        let b = NaN;
+        while (isNaN(b)){
+        b= Number(prompt("Введите значение Б"));
+        if ( isNaN(b) || !Number.isInteger(b))  {
+        alert('Нужно ввести целое число');  
+        b = NaN;
+        }}
+       
+        let c = NaN;
+        while (isNaN(c)){
+        c= Number(prompt("Введите значение С"));
+        if ( isNaN(c) || !Number.isInteger(c))  {
+        alert('Нужно ввести целое число');  
+        c = NaN;
+        }}
+       
+        let max;
+        //Большее
+        if (a<b && b>c){
+            max = b;
+        }else if(b<a && a>c){
+            max = a;
+        }else{
+            max = c;
+        }
+
+        let min;
+        //Меньшие
+        if (a>b && b<c){
+            min = b;
+        }else if(b>a && a<c){
+            min = a;
+        }else{
+            min = c;
+        }
+       
+        let sred ;
+        // Среднее
+        if((b<a && a<c) || (c<a && a<b))
+        {
+            sred = a;
+        }else if((a<b && b<c) || (c<b && b<a)){
+            sred = b;
+        }else if((a<c && c<b) || (b<c && c<a)){
+            sred = c;
+        }
+       
+        Resh1 = (max - min) * 2;
+        Resh2 = min * sred
+       
+        if (Resh1 > Resh2){
+            alert('Удвоенная разность наибольшего и наименьшего числа больше')
+        }else{
+            alert('Произведение меньшего и "среднего" числа больше')
+        }
+
+</script>
+</head>
+<body>
+    
+</body>
+</html>

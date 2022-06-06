@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>    
+    let num = 452022;
+    let countOfDivider = 1;
+    let count = 1;
+    let min = 1;
+    let max = 1;
+    let M = 0;
+    while (count <= 5) {
+        for (let i = 2;i < num;i++) {
+            if (num % i == 0) {
+                if(countOfDivider == 1) {
+                    min = i;//находится самый первый делитель и он минимальный
+                }
+                max = i;
+                countOfDivider++;
+            }
+            if(i == num - 1){
+            M = max + min;
+
+            if (M % 7 == 3) {
+                console.log("Число : " + num + " Сумма делителей: " + M);
+                count++;
+            }
+        }  
+        }
+        num++;
+    }
+</script>
+</body>
+</html>
