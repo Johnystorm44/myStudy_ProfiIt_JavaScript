@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ClassWork_1</title>
+</head>
+<body>
+    <script>
+        /*let massiv = [10,34,101,89,1002,103];
+        
+        for(let i = 0; i < massiv.length;i += 2) {
+                console.log(massiv[i]);
+            
+        }
+        //при выполнении дз не использовать sort();
+        */
+
+        //поиск минимального значения массива
+       let massiv  = [1,4,9,16,25,36,49,64,81];
+       let K = +prompt();
+       let count = 0;
+       for (let Element of massiv) {
+           if(Element > K) {
+               Element = K;
+               count++;
+           }
+       }
+       console.log(massiv);
+       console.log(count);
+
+    </script>
+</body>
+</html>
