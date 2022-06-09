@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+
+        "use strict"
+
+        const arrSize = 10;
+        let arr = [];
+        let maxNumber, minNumber;
+        let posMaxNumber = 0, posMinNumber = 0;
+        let count;
+        let product = 1;
+
+        for(let i = 0; i < arrSize; i++) {
+            arr[i] = +prompt(i + " значение массива: ");
+            if(isNaN(arr[i])) {
+                console.log("Вы ввели не число!!!");
+                throw new Error;
+            }
+            if(arr[i] === "") {
+                console.log("Вы ввели пустую строку.");
+                break;
+            }
+        }
+
+        for (let i = 0;i < arrSize; i++) {
+            console.log(arr[i] + " ");
+        }
+
+        for (let i = 0; i < arrSize; i++) {
+            maxNumber = arr[0];
+            if(maxNumber < arr[i]) {
+                maxNumber = arr[i];
+                posMaxNumber = i;
+            }
+            
+        }
+
+        for(let i = 0; i < arrSize; i++) {
+            minNumber = arr[0];
+            if(minNumber > arr[i]) {
+                minNumber = arr[i];
+                posMinNumber = i;
+            }
+            
+        }
+
+        count = Math.abs(posMaxNumber - posMinNumber) - 1;
+    
+        if(count != 0) {
+            if(posMaxNumber > posMinNumber) {
+               for(let i = posMinNumber + 1; i < posMaxNumber;i++) {
+                   product *= arr[i];
+               }
+           }
+           if(posMaxNumber < posMinNumber) {
+               for(let i = posMaxNumber + 1; i < posMinNumber;i++) {
+                   product *= arr[i];
+               }
+           } 
+           console.log("Произведение элементов между минимальным и максимальным равно: " + product);  
+           
+        }  else {
+            console.log("Нет решений");
+        }
+           
+        console.log("Количество цифр между максимальным и минимальным элементом: " + count);
+
+
+    </script>
+</head>
+<body>
+<h2>В числовой последовательности определить количество и произведение элементов расположенных между максимальным и минимальным. 
+    Максимальный и минимальный элементы в расчёт количества и произведения не включать.</h2>
+    
+</body>
+</html>

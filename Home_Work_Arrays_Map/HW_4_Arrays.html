@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HW_4_Arrays</title>
+    <script>
+        "use strict"
+
+        function BinarySort(myArr) {
+            for(let i = 1;i < myArr.length; ++i) {
+                let low = 0;
+                let high = i - 1;
+                let temp = myArr[i];
+
+                while(low <= high) {
+                    let mid = Math.floor((low + high) / 2);
+                    if(temp < myArr[mid]) {
+                        high = mid - 1;
+                    } else {
+                        low = mid + 1;
+                    }
+                }
+                for (let j = i - 1; j >= low; j--){
+                    myArr[j + 1] = myArr[j];
+                }
+                myArr[low] = temp;
+            }
+            return myArr;
+        }
+
+        let num = +prompt("Введите количечтво значений в массиве: ");
+        if(isNaN(num)) {
+            console.log("Вы ввели не число.");
+            throw new Error;
+        }
+        let myArr = [num];
+    
+        for(let i = 0; i < num;i++) {
+            myArr[i] = +prompt(i + " значение массива: ");
+            if(isNaN(myArr[i])) {
+            console.log("Вы ввели не число.");
+            throw new Error;
+        }
+        }
+
+        console.log("Исходный массив: " + myArr);
+        
+       let sortArr = BinarySort(myArr);
+
+       for(let i = 0; i < sortArr.length; i++) {
+           if (sortArr[i] < 0) {
+               sortArr.splice(i , 1);
+               i--;
+           }
+       }
+       
+       for(let i = 0; i < sortArr.length - 1;++i) {
+           for (let j = 0; j < sortArr.length - 1; ++j) {
+               if(sortArr[j] < sortArr[j + 1]) {
+                   let x = sortArr[j];
+                   sortArr[j] = sortArr[j + 1];
+                   sortArr[j + 1] = x;
+               }
+           }
+       }
+        
+       console.log("Отсортированый массив по убыванию с удаленными отрицательными элементами: " + sortArr);
+     
+        
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

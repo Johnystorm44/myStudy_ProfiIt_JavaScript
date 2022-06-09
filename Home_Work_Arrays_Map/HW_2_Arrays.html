@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HW_2_Arrays</title>
+    <script>
+        "use strict"
+
+        const sizeArr = 10;
+
+        let arr = new Array();       
+        let countOfEvennumbers = 0;
+
+        for(let i = 0; i < sizeArr;i++) {
+            arr[i] = +prompt(i + " элемент массива равен: ");
+            console.log(arr[i]);
+            if(arr[i] % 2 == 0) {
+                countOfEvennumbers++;
+            }
+            if(isNaN(arr[i]) == true) {
+                alert("Вы ввели не число.");
+                throw new Error;
+            }
+  
+        }        
+         
+        let evenArr = new Array(countOfEvennumbers);
+        let j = 0;
+        
+
+        for(let i = 0; i < sizeArr;i++) {
+            if(arr[i] % 2 == 0) {
+                evenArr[j++] = arr[i];
+            }
+        }
+
+        if(evenArr.length == 0){
+            console.log("Четных элементов нет в массиве");
+        } else {
+            console.log("Четные элементы массива: " + evenArr);
+        }
+    </script>
+</head>
+<body>
+    <h1>Дана последовательность натуральных чисел. Создать массив из четных чисел заданной последовательности. Если таких чисел нет, то вывести сообщение об этом.</h1>
+</body>
+</html>

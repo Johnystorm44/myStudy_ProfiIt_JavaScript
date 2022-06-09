@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        "use strict"
+
+        const numbers = 10;
+        let arr = [];
+        let zeroArr = [];
+        let count = 0;
+        let inputNumbers = +prompt("Для самостоятельного ввода значений в массив нажмите 1: ");
+        switch(inputNumbers) {
+            case 1:
+                for (let i = 0; i < numbers;i++) {
+                    arr[i] = +prompt(i + " элемент массива равен: ");
+                    if(isNaN(arr[i]) == true) {
+                        console.log("Вы ввели не число.");
+                        throw new Error;
+                    }
+                }
+                break;
+            default:
+                arr = [0, 2, 5, 6, 7, 8, 9, 0, 11, 0];
+                break;
+        }
+
+        for (let i = 0; i < numbers; i++) {
+            if(arr[i] == 0) {
+                zeroArr[count] = i + 1;
+                count++;
+            }
+        }
+
+        if (count == 0) {
+            alert("Нулевых элементов нет.");
+        } else {
+           for (let i = 0;i < count;i++) {
+                console.log("Нулевые элементы: " + zeroArr[i] + " ");
+           }
+        }
+
+
+    </script>
+</head>
+<body>
+    <h1>В целочисленной последовательности есть нулевые элементы. Создать массив из номеров этих элементов.</h1>
+</body>
+</html>
