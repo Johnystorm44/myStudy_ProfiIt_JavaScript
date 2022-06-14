@@ -19,8 +19,6 @@
                    arr[i][i] = arr[j][j];
                     arr[j][j] = temp;
                 }
-                
-        
             }
         }
             return arr;
@@ -55,12 +53,20 @@
                     matrixC[i] = new Array();
                     for (let j = 0; j < firstMatrixSize;++j) {
                         matrixC[i][j] = +prompt("Введите целое число для ячейки [" + i + ":" + j + "]")
+                        if(isNan(matrixC[i][j])) {
+                            console.log("Вы ввели не число!!!");
+                            throw new Error;
+                        }
                     }
                 }
                 for(let k = 0; k < secMatrixSize; ++k) {
                     matrixD[k] = new Array();
                     for (let x = 0; x < secMatrixSize; x++) {
                         matrixD[k][x] = +prompt("Введите целое число для ячейки [" + k + ":" + x + "]")
+                        if(isNan(matrixD[i][j])) {
+                            console.log("Вы ввели не число!!!");
+                            throw new Error;
+                        }
                     }
                 }
                 break;
@@ -143,7 +149,7 @@
         }   
         console.log("Результрующая матрица C1: ");
         console.log(matrixC1);
-
+        //находим результат матрицы D1 по условию
         for(let i = 0; i < secMatrixSize; i++) {
             matrixD1[i] = new Array();
             for (let j = 0; j < secMatrixSize; j++) {
