@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Задача на демодень</title>
+</head>
+    <script>
+        "use strict"
+
+        function SortMainDiagonalAscending(arr = [], size) {
+            let temp;
+        for (let i = 0; i < size; i++) {
+            for(let j = i + 1; j < size; j++) {
+                let temp;
+                if (arr[i][i] > arr[j][j]) {
+                    temp = arr[i][i];
+                   arr[i][i] = arr[j][j];
+                    arr[j][j] = temp;
+                }
+                
+        
+            }
+        }
+            return arr;
+    }
+        const firstMatrixSize = +prompt("Введите размерность матрицы С (четная): ");
+        if(firstMatrixSize % 2 != 0) {
+            console.log("Нужно ввести четную размерность!!!");
+            throw new Error;
+        }
+        const secMatrixSize = +prompt("Введите размерность матрицы D (четная): ");
+        if(secMatrixSize % 2 != 0) {
+            console.log("Нужно ввести четную размерность!!!");
+            throw new Error;
+        }
+
+        let matrixC = [];
+        let matrixD = [];
+
+        let matrixC1 = [];
+        let matrixD1 = [];
+
+        let matrixCC = [];
+        let matrixDD = [];
+
+        let sumRowsMatrixC = [];
+        
+        let option = +prompt("Выберите способ заполнения матриц.\n1 - заполнение элементов вручную. \n2 - рандомные значения от 1 до 10.");
+
+        switch(option) {
+            case 1:
+                for(let i = 0;i < firstMatrixSize;++i) {
+                    matrixC[i] = new Array();
+                    for (let j = 0; j < firstMatrixSize;++j) {
+                        matrixC[i][j] = +prompt("Введите целое число для ячейки [" + i + ":" + j + "]")
+                    }
+                }
+                for(let k = 0; k < secMatrixSize; ++k) {
+                    matrixD[k] = new Array();
+                    for (let x = 0; x < secMatrixSize; x++) {
+                        matrixD[k][x] = +prompt("Введите целое число для ячейки [" + k + ":" + x + "]")
+                    }
+                }
+                break;
+            case 2:
+                 for (let i = 0; i < firstMatrixSize;++i) {
+                    matrixC[i] = new Array();
+                    for (let j = 0; j < firstMatrixSize;++j) {
+                        matrixC[i][j] = Math.floor(Math.random() * 10);
+                    }
+                 }
+
+                 for(let k = 0; k < secMatrixSize;++k) {
+                    matrixD[k] = new Array();
+                    for (let x = 0; x < secMatrixSize; ++x) {
+                        matrixD[k][x] = Math.floor(Math.random() * 10);
+                    }
+                 }
+                 break;
+        } 
+        //вывод матрицы С
+        console.log("Матрица С: ");
+        console.log(matrixC);
+
+        //вывод матрицы D
+        console.log("Матрица D: ");
+        console.log(matrixD);
+
+        //присваиваем матрицу С к матрице СС
+            for(let i = 0; i < firstMatrixSize; i++) {
+                matrixCC[i] = new Array();
+            for(let j = 0; j < firstMatrixSize; j++) {
+                matrixCC[i][j] = matrixC[i][j]
+            }
+        }
+        //присваиваем матрицу D к матрице DD
+            for(let i = 0; i < firstMatrixSize; i++) {
+                matrixDD[i] = new Array();
+            for(let j = 0; j < firstMatrixSize; j++) {
+                matrixDD[i][j] = matrixD[i][j]
+            }
+        }
+
+        //Сортируем по главной диагонали матрицы СС и DD
+        matrixCC = SortMainDiagonalAscending(matrixCC, firstMatrixSize);
+        matrixDD = SortMainDiagonalAscending(matrixDD, secMatrixSize);
+
+        //вывод матрицы CC
+        console.log("Матрица СС: ");
+        console.log(matrixCC);
+
+        //вывод матрицы DD
+        console.log("Матрица DD: ");
+        console.log(matrixDD);
+
+        let sumElemColumnMatrixC = [];
+        let prodElemRowMatrixD = [];
+
+            for(let i = 0; i < firstMatrixSize; i++) {
+                sumElemColumnMatrixC[i] = 0;
+            for (let j = 0; j < firstMatrixSize; j++) {
+                sumElemColumnMatrixC[i] += matrixC[j][i];
+                }
+            }
+        console.log("Сумма элементов столбца матрицы С: " + sumElemColumnMatrixC);
+
+            for(let i = 0; i < secMatrixSize; i++) {
+                prodElemRowMatrixD[i] = 1;
+            for(let j = 0; j < secMatrixSize; j++) {
+                    prodElemRowMatrixD[i] *= matrixD[i][j];
+                }
+            }
+        console.log("Произведение элементов строки матрицы D: " + prodElemRowMatrixD);    
+
+        //находим результат матрицы C1 по условию
+            for (let i = 0; i < firstMatrixSize; i++) {
+                matrixC1[i] = new Array();
+            for (let j = 0; j < firstMatrixSize; j++) {
+                matrixC1[i][j] = matrixCC[i][j] * sumElemColumnMatrixC[i];
+            }
+        }   
+        console.log("Результрующая матрица C1: ");
+        console.log(matrixC1);
+
+        for(let i = 0; i < secMatrixSize; i++) {
+            matrixD1[i] = new Array();
+            for (let j = 0; j < secMatrixSize; j++) {
+                matrixD1[i][j] = matrixDD[i][j] + prodElemRowMatrixD[j];
+            }
+        }
+
+        console.log("Результрующая матрица D1: ");
+        console.log(matrixD1);
+
+    </script>
+<body>
+    "Даны две числовые квадратные матрицы С(М, М) и D(N, N), (M, N - четные).
+ Расположить элементы на главных диагоналях в порядке возрастания (в направлении сверху вниз), то есть получить матрицы СС и DD.
+ Получить результирующие матрицы: С1 умножением элементов каждой строки матрицы СС на сумму элементов соответствующего столбца матрицы С и D1 суммированием элементов каждого столбца матрицы DD с произведением всех элементов соответствующей строки матрицы D.
+ Напечатать матрицы С1, D1."
+    
+</body>
+</html>
