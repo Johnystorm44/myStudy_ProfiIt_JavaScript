@@ -21,19 +21,77 @@
                 }
             }
         }
-            return arr;
+        return arr;
     }
-        const firstMatrixSize = +prompt("Введите размерность матрицы С (четная): ");
-        if(firstMatrixSize % 2 != 0) {
-            console.log("Нужно ввести четную размерность!!!");
-            throw new Error;
+    function FillArrayRandomNumbers(arr = [] , size) {
+        for (let i = 0; i < size; ++i) {
+            arr[i] = new Array();
+        for (let j = 0; j < size; ++j) {
+            arr[i][j] = Math.floor(Math.random() * 10);
+            }
         }
-        const secMatrixSize = +prompt("Введите размерность матрицы D (четная): ");
-        if(secMatrixSize % 2 != 0) {
-            console.log("Нужно ввести четную размерность!!!");
-            throw new Error;
+        return arr;
+    }
+    function FillArrayFromUser(arr = [], size) {
+        for(let i = 0;i < size; ++i) {
+            arr[i] = new Array();
+        for (let j = 0; j < size; ++j) {
+            if(isNaN(arr[i][j])) {
+                alert("Вы ввели не число!!!");
+                throw new Error;
+            }
+            arr[i][j] = +prompt("Введите целое число для ячейки [" + i + ":" + j + "]")          
+            }
         }
+        return arr;
+    }
+    function SumElemColumnMatrixC(sum = [], size, arr = []) {
+        for(let i = 0; i < size; i++) {
+                sum[i] = 0;
+            for (let j = 0; j < size; j++) {
+                sum[i] += arr[j][i];
+            }
+        }
+        return sum;
+    }
+    function ProdElemRowMatrixD (prod = [], size, arr = []) {
+        for(let i = 0; i < size; i++) {
+                prod[i] = 1;
+        for(let j = 0; j < size; j++) {
+                prod[i] *= arr[i][j];
+            }
+        }
+        return prod;
+    }
+    function FindResultMatrixC1 (arrC1 = [], size, arrCC = [], sum = []) {
+            for (let i = 0; i < size; i++) {
+                arrC1[i] = new Array();
+            for (let j = 0; j < size; j++) {
+                arrC1[i][j] = arrCC[i][j] * sum[i];
+            }
+        } 
+        return arrC1;  
+    }
 
+    function FindResultMatrixD1(arrD1 = [], size, arrDD = [], prod = []) {
+        for(let i = 0; i < size; i++) {
+            arrD1[i] = new Array();
+            for (let j = 0; j < size; j++) {
+            arrD1[i][j] = arrDD[i][j] + prod[j];
+            }
+        }
+        return arrD1;
+    }
+
+    function SizeMatrix (){
+        let matrixSize = +prompt("Введите размерность матрицы С (четная): ");
+        while(isNaN(matrixSize) || (matrixSize % 2 != 0)) {
+            alert("Нужно ввести четную размерность!!!");
+            matrixSize = +prompt("Введите размерность матрицы С (четная): ");
+        }
+        return matrixSize;
+    }
+    
         let matrixC = [];
         let matrixD = [];
 
@@ -43,49 +101,25 @@
         let matrixCC = [];
         let matrixDD = [];
 
-        let sumRowsMatrixC = [];
+        let sumElem = [];
+        let prodElem = [];
+        
+        const firstMatrixSize = SizeMatrix()
+        const secMatrixSize = SizeMatrix();
         
         let option = +prompt("Выберите способ заполнения матриц.\n1 - заполнение элементов вручную. \n2 - рандомные значения от 1 до 10.");
-
-        switch(option) {
+            switch(option) {
             case 1:
-                for(let i = 0;i < firstMatrixSize;++i) {
-                    matrixC[i] = new Array();
-                    for (let j = 0; j < firstMatrixSize;++j) {
-                        matrixC[i][j] = +prompt("Введите целое число для ячейки [" + i + ":" + j + "]")
-                        if(isNan(matrixC[i][j])) {
-                            console.log("Вы ввели не число!!!");
-                            throw new Error;
-                        }
-                    }
-                }
-                for(let k = 0; k < secMatrixSize; ++k) {
-                    matrixD[k] = new Array();
-                    for (let x = 0; x < secMatrixSize; x++) {
-                        matrixD[k][x] = +prompt("Введите целое число для ячейки [" + k + ":" + x + "]")
-                        if(isNan(matrixD[i][j])) {
-                            console.log("Вы ввели не число!!!");
-                            throw new Error;
-                        }
-                    }
-                }
+            matrixC = FillArrayFromUser(matrixC, firstMatrixSize);                       
+            matrixD = FillArrayFromUser(matrixD, secMatrixSize);
                 break;
             case 2:
-                 for (let i = 0; i < firstMatrixSize;++i) {
-                    matrixC[i] = new Array();
-                    for (let j = 0; j < firstMatrixSize;++j) {
-                        matrixC[i][j] = Math.floor(Math.random() * 10);
-                    }
-                 }
-
-                 for(let k = 0; k < secMatrixSize;++k) {
-                    matrixD[k] = new Array();
-                    for (let x = 0; x < secMatrixSize; ++x) {
-                        matrixD[k][x] = Math.floor(Math.random() * 10);
-                    }
-                 }
-                 break;
+            matrixC = FillArrayRandomNumbers(matrixC, firstMatrixSize);
+            matrixD = FillArrayRandomNumbers(matrixD, secMatrixSize); 
+                break;
+                
         } 
+
         //вывод матрицы С
         console.log("Матрица С: ");
         console.log(matrixC);
@@ -93,21 +127,10 @@
         //вывод матрицы D
         console.log("Матрица D: ");
         console.log(matrixD);
-
-        //присваиваем матрицу С к матрице СС
-            for(let i = 0; i < firstMatrixSize; i++) {
-                matrixCC[i] = new Array();
-            for(let j = 0; j < firstMatrixSize; j++) {
-                matrixCC[i][j] = matrixC[i][j]
-            }
-        }
-        //присваиваем матрицу D к матрице DD
-            for(let i = 0; i < firstMatrixSize; i++) {
-                matrixDD[i] = new Array();
-            for(let j = 0; j < firstMatrixSize; j++) {
-                matrixDD[i][j] = matrixD[i][j]
-            }
-        }
+        
+        //присвиваем матрицы СС и DD к матрицам С и D 
+        matrixCC = matrixC.map(arr => arr.slice());
+        matrixDD = matrixD.map(arr => arr.slice());    
 
         //Сортируем по главной диагонали матрицы СС и DD
         matrixCC = SortMainDiagonalAscending(matrixCC, firstMatrixSize);
@@ -121,42 +144,19 @@
         console.log("Матрица DD: ");
         console.log(matrixDD);
 
-        let sumElemColumnMatrixC = [];
-        let prodElemRowMatrixD = [];
+        SumElemColumnMatrixC(sumElem, firstMatrixSize, matrixC);
+        console.log("Сумма элементов столбца матрицы С: " + sumElem);
 
-            for(let i = 0; i < firstMatrixSize; i++) {
-                sumElemColumnMatrixC[i] = 0;
-            for (let j = 0; j < firstMatrixSize; j++) {
-                sumElemColumnMatrixC[i] += matrixC[j][i];
-                }
-            }
-        console.log("Сумма элементов столбца матрицы С: " + sumElemColumnMatrixC);
-
-            for(let i = 0; i < secMatrixSize; i++) {
-                prodElemRowMatrixD[i] = 1;
-            for(let j = 0; j < secMatrixSize; j++) {
-                    prodElemRowMatrixD[i] *= matrixD[i][j];
-                }
-            }
-        console.log("Произведение элементов строки матрицы D: " + prodElemRowMatrixD);    
+        ProdElemRowMatrixD(prodElem, secMatrixSize, matrixD);   
+        console.log("Произведение элементов строки матрицы D: " + prodElem);    
 
         //находим результат матрицы C1 по условию
-            for (let i = 0; i < firstMatrixSize; i++) {
-                matrixC1[i] = new Array();
-            for (let j = 0; j < firstMatrixSize; j++) {
-                matrixC1[i][j] = matrixCC[i][j] * sumElemColumnMatrixC[i];
-            }
-        }   
+        FindResultMatrixC1(matrixC1, firstMatrixSize, matrixCC, sumElem);   
         console.log("Результрующая матрица C1: ");
         console.log(matrixC1);
+        
         //находим результат матрицы D1 по условию
-        for(let i = 0; i < secMatrixSize; i++) {
-            matrixD1[i] = new Array();
-            for (let j = 0; j < secMatrixSize; j++) {
-                matrixD1[i][j] = matrixDD[i][j] + prodElemRowMatrixD[j];
-            }
-        }
-
+         FindResultMatrixD1(matrixD1, secMatrixSize, matrixDD, prodElem);   
         console.log("Результрующая матрица D1: ");
         console.log(matrixD1);
 
