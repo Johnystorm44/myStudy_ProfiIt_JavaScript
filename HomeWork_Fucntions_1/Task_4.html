@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Задание 4</title>
+</head>
+<body>
+    <script>
+        function Foo(n) {
+            return (3 * n - Math.sin(n) - 7);
+        }
+
+        function HalfDiv(x1, x2 ,eps) {
+            let x3 = 0;
+            while(Math.abs(x2 - x1) > eps) {
+                x3 = (x1 + x2) / 2;
+                if (Foo(x1) * Foo(x3) < 0) {
+                    x2 = x3;
+                } else {
+                    x1 = x3;
+                }
+            }
+            return x3;
+        }
+
+        let num1 = +prompt("Введите левую границу: ");
+        let num2 = +prompt("Введите правую границу: ");
+        let accur = +prompt("Введите точность: ");
+
+        while(isNaN(num1) || isNaN(num2) || isNaN(accur)) {
+            alert("Введите число: ");
+        num1 = +prompt("Введите левую границу: ");
+        num2 = +prompt("Введите правую границу: ");
+        accur = +prompt("Введите точность: ");
+        }
+        console.log('Корень функции: ');
+        console.log(HalfDiv(num1, num2, accur));
+
+    </script>
+</body>
+</html>

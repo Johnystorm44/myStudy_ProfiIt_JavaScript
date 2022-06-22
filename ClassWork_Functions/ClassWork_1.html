@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function getF(x) {
+            return x ** 2 - x * 3 + 5 - Math.cos(x); 
+        }
+
+        function Integral(a, b, n) {
+        let h = (b - a) / n;
+        let sum = 0;
+
+        for(let i = 1; i < n; i++) {
+            sum += 2 * getF(a + i * h);
+        }
+
+        return h / 2 * (getF(a) + getF(b) + sum);
+        }
+
+        let a = +prompt("a =");
+        let b = +prompt("b =");
+        let n = +prompt("Количество точек: ");
+
+       
+        alert(Integral(a, b, n));
+
+
+
+    </script>
+</body>
+</html>

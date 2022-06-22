@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Задание 2</title>
+</head>
+<body>
+    <script>
+        function getF(n) {
+            if(n <= 5) {
+                return 2 * n;
+            }
+            if (n % 2 == 0 && n > 5) {
+                return getF(n - 2) + 3 * getF(n / 2) + n;
+            }
+            else if (n % 2 != 0 && n > 5) {
+                return getF(n - 1) + getF(n - 2) + getF(n - 3);
+            }
+            
+        }
+        let num1 = 99;
+        let num2 = 100;
+
+        console.log("Результат сложения функций: ");
+        console.log(getF(num1) + getF(num2));
+    </script>
+</body>
+</html>
