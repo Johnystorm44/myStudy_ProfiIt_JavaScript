@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Задание 1</title>
+</head>
+<body>
+    <script>
+        function sumNumbers(num) {
+            let degen = num % 10;
+            if (num > 0) {
+                return degen + sumNumbers((num - degen) / 10);
+            }
+                return degen;            
+        }
+        
+        function equalNumbers(sum, num) {
+            return sum === num;
+        }
+
+        let firstNumber = +prompt('Введите неотрицательное число N: ', 0);
+        let secNumber = +prompt('Введите неотрицательное число S: ', 0);
+        let sumNum = sumNumbers(firstNumber);
+        
+        alert("Сумма цифр N = " + sumNum);
+        alert("Сумма цифр N и S " + equalNumbers(sumNum, secNumber));
+        
+    </script>
+</body>
+</html>

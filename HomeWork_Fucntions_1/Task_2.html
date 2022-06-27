@@ -20,11 +20,16 @@
             }
             
         }
-        let num1 = 99;
-        let num2 = 100;
 
-        console.log("Результат сложения функций: ");
-        console.log(getF(num1) + getF(num2));
+        function printResult(x1, x2) {
+            console.log(getF(x1) + getF(x2));
+        }
+
+        let num1 = +prompt("Введите первое значение: ");
+        let num2 = +prompt("Введите второе значение: ");
+        
+        console.log('Результат сложения функций: ');
+        printResult(num1, num2);
     </script>
 </body>
 </html>
