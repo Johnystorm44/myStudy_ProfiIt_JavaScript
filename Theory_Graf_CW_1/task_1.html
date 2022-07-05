@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const friendList = {
+            1: {
+                id: 1,
+                name: 'Maria', 
+                gender: 'female',
+                friends: ['Vova', 'Kate', 'Marina']
+                }, 
+            2: {
+                id: 2,
+                name: 'Vova',
+                gender: 'male',
+                friends: [1, 3, 4]
+            },
+            3: {
+                id: 3,
+                name: 'Marina',
+                gender: 'female',
+                friends: [2, 5, 1]
+            },
+            4: {
+                id: 4,
+                name: 'Kate',
+                gender: 'female',
+                friends: [1, 2 , 5]
+            },
+            5: {
+                id: 5,
+                name: 'Andrey',
+                gender: 'male',
+                friends: [4, 3]
+            }
+        }
+
+        const kate = friendList[1];
+        console.log('Kate', kate);
+
+        const kateFriends = kate.friends.map(friendName => Object.values(friendList).find(friend => friend.name === friendName));
+
+        console.log('kate friends', kateFriends);
+    </script>
+    
+</body>
+</html>
