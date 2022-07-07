@@ -1,21 +1,19 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-</head>
-<body>
     <script>
-        function bfs(graph, start, finish) {
-            let queue = Array();
+        function searchBfs(graph, start, finish) {
+            let queue = new Array();
             queue.push(start);
             graph[start].visited = true;
         
         let path = {};
 
-        while(queue.length > 0) {
+        while (queue.length > 0) {
             let checkPosition = queue.shift();
             if (checkPosition == finish) {
                  break;
@@ -28,72 +26,79 @@
             }
         }
     }
-        let conc = 0;
-        let topList = Array();
+        let len = 0;
+        let topList = new Array();
 
-        alert('Начало: ' + start + ' Конец: ' + finish);
+        console.log('Начало: ' + start + ' Конец: ' + finish);
 
-        while(path[finish]) {
-            topList[conc] = finish
-            if(finish == start) break;
+        while (path[finish]) {
+            topList[len] = finish
+            if(finish == start){
+                break;
+            }
             finish = path[finish];
-            conc++;
+            len++;
         }
 
         topList.push(start);
-        for(let i = 0 ; i < topList.length(); ++i) {
-            console.log(topList[toplist.length - i - 1]);
+
+        for(let i = 0 ; i < topList.length; i++) {
+            console.log(topList[topList.length - i - 1]);
         }
 
-        if(conc > 0) {
-            console.log('Длина: ' + run,'');
+        if(len > 0) {
+            console.log('Длина: ' + len);
         } else {
-            console.log('Такого пути нет.','');
+            console.log('Такого пути нет.');
         }
-
+    }
         let graphList = {
             1: {
                 connect: [2, 6],
             },
             2: {
-                connect: [1, 9]
+                connect: [1, 9],
             },
             3: {
-                connect : [4, 9]
+                connect : [4, 9],
             },
             4: {
-                connect: [5, 3, 6, 7]
+                connect: [5, 3, 6, 7],
             },
             5: {
-                connect: [4, 9, 10]
+                connect: [4, 9, 10],
             },
             6: {
-                connect: [1, 4, 7]
+                connect: [1, 4, 7],
             },
             7: {
-                connect: [4, 6, 8]
+                connect: [4, 6, 8],
             },
             8: {
-                connect: [7]
+                connect: [7],
             },
             9: {
-                connect: [2, 3, 5, 10] 
+                connect: [2, 3, 5, 10],
             },
             10: {
-                connect: [9, 5]
-            }
+                connect: [9, 5],
+            },
         };
 
-        let numberS = +prompt('Введите начало (1 до 10)', '');
-        let numberF = +prompt('Введите конец (1 до 10)', '');
+        let numberS = +prompt('Введите начало (1 до 10)');
+        let numberF = +prompt('Введите конец (1 до 10)');
 
+        
         if(isNaN(numberS) || isNaN(numberF) || numberS < 1 || numberS > 10 || numberF < 1 || numberF > 10) {
-            alert('Введены неккореткные данные!');
+            console.log('Введены неккореткные данные!');
             throw new Error;
         }
 
-        console.log(bfs(topList, numberS, numberF));
-    }
+        console.log(searchBfs(graphList, numberS, numberF));
+    
     </script>
+</head>
+<body>
+    
 </body>
 </html>

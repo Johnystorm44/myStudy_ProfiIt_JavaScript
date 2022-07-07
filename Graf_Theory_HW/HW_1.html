@@ -8,21 +8,37 @@
 </head>
 <body>
     <script>
-        let size = +prompt('Введите число N: ', '');
+        let size = +prompt('Введите число N: ');
+        if(isNaN(size) || size <= 0 || size > 100) {
+            console.log('Неправильный введеный диапазон!!!',);
+            throw new Error;
+        }
         let result = 0;
         let arr = new Array();
+        arr.length = size;
 
-        for(let i = 0; i < size; ++i) {
+        for(let i = 0; i < arr.length; ++i) {
             arr[i] = new Array();
-            for (let j = 0; j < size; j++) {
-                arr[i][j] = Math.floor(Math.random() * 2);
-                result += arr[i][j]; 
+        }
+
+        for(let i = 0; i < arr.length; ++i) {
+            for(let j = 0; j < arr.length; ++j) {
+                if (i - j < 0) {
+                    arr[i][j] = Math.floor(Math.random() * 2);
+                if (arr[i][j] == 1) {
+                    result++;
+                }
+            }
+            if(arr[i][j] == 1) {
+                arr[j][i] = 1;
+            }
+            if(arr[i][j] == undefined) {
+                arr[i][j] = 0;
             }
         }
+    }
+        console.log('Количество дорог: ' + result);
         console.log(arr);
-        console.log('Количество дорог: ' + result / 2);
-        console.log(fff)
-
     </script>
 </body>
 </html>
