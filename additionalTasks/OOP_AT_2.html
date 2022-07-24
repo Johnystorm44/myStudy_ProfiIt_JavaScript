@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        class Validator {
+
+        'use strict';
+
+        isEmail(email){
+        return /^[a-zA-Z0-9._\-]+@[a-z]+\.[a-z]{2,3}$/.test(email); //метод test() выполняет поиск сопоставления регулярного выражения указанной строке
+                                                                    //возвращает true или false
+        }
+        isDomain(domain){
+        return /^[a-zA-Z0-9._\-]+\.[a-z]{3}$/.test(domain);
+        }
+        isDate(date){
+        return /^\d\d\.\d\d\.\d\d\d\d$/.test(date);
+        }
+        isPhone(phone){
+        return /^\+\d\s\(\d\d\d\)\s\d\d\d-\d\d-\d\d$/.test(phone);
+        }
+}
+
+const validator = new Validator();
+console.log(validator.isEmail('javascript@mail.ru'))
+console.log(validator.isDomain('python.net'));
+console.log(validator.isDate('28.11.1994'));
+console.log(validator.isPhone('+3842 (010) 625-45-69'));
+    </script>
+</head>
+<body>
+Реализуйте класс Validator, который будет проверять строки. К примеру, у него будет метод
+isEmail c параметром, который принимает строку и проверяет,
+является ли она корректной для адреса электронной почты. Если является - возвращает
+true, если не является - то false. Кроме того, класс будет иметь следующие методы:
+метод isDomain для проверки домена, метод isDate для проверки даты и метод isPhone для проверки телефона. 
+</body>
+</html>

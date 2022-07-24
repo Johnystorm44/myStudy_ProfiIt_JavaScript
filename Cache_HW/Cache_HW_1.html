@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Задание 1</title>
+</head>
+<body>
+    <script>
+        "use strict";
+
+        class LRUcash {
+            constructor (volume, calc) {
+                this.volume = volume;
+                this.calc = calc;
+                this.cashArr = new Array();
+            }
+
+            getElem(elem) {
+                if (this.cashArr.length != 0) {
+                    for (let i = 0; i < this.cashArr.length; ++i) {
+                        if(this.cashArr[i][0] == elem) {
+                            let res = this.cashArr[i][1];
+                            if (i != 0) {
+                                this.cashArr.splice(i, 1);
+                                this.cashArr.unshift([elem, res]);
+                            }
+                            return res;
+                        }
+                    }
+                }
+                return this.setElem(elem);
+            }
+            setElem(elem) {
+                let value = this.calc(elem);
+                    this.cashArr.unshift([elem, value]);
+                    if (this.cashArr.length > this.volume) { 
+                        this.cashArr.pop();
+                    }
+                    return value;
+                }
+            }
+        
+        function calculateSum (number) {
+            let sum = 0;
+             for (let i = 0; i < number; i++) {
+            sum += i;
+        }
+             return sum;
+        }
+        let capacity = +prompt('Введите размер кэша:','');
+
+            if (isNaN(capacity) || capacity < 2) {
+                alert('Введены некоректные данные');
+                throw new RangeError;                
+            } else {
+                let obj  = new LRUcash(capacity, calculateSum);
+                do {
+
+                    if (isNaN(capacity) || capacity < 2) break;
+                    let input = +prompt('Введите число для вычисления:','');
+
+                    if (isNaN(input)) {
+                        alert('Необходимо вводить числа!');
+                        throw new TypeError;               
+                    }
+                    if (!input) break;
+
+                    alert('Результат вычисления: ' + obj.getElem(input)); 
+                    alert('Кэш: ' + obj.cashArr);
+
+                } while(true)
+            }
+    </script>
+</body>
+</html>

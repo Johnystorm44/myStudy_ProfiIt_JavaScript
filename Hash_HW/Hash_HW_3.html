@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function getHash(password) {
+            let res;
+            let sum = 0;
+            for (let i = 0; i < password.length; ++i) {
+                sum += password.charCodeAt(i);
+            }
+            sum %= 256;
+            res = sum.toString(16);
+
+            return res;
+        }
+        let hashOfQwerty = getHash('qwerty');
+        console.log('Список двухзначных паролей, одинаковый с hash-код qwerty: ');
+        let num = 1;
+        for (let i = 48; i < 123; ++i) {
+            if(!((i > 57 && i < 65) || (i > 90 && i < 97))) {
+                for (let j = 48; j < 123; ++j) {
+                    if(!((j > 57 && j < 65) || (j > 90 && j < 97))) {
+                        let str = String.fromCharCode(i) + String.fromCharCode(j);
+                        if(getHash(str) === hashOfQwerty) {
+                            console.log(`${num}. ${str}`);
+                            num++;
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+</body>
+</html>

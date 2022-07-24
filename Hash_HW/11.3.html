@@ -1,0 +1,40 @@
+<html>
+
+<head>
+	<script>
+
+		function getHash(password) {
+			let sum = 0;
+			let result;
+			for (let i = 0; i < password.length; i++) {
+				sum += password.charCodeAt(i);
+			}
+			sum = sum % 256;
+			result = sum.toString(16);
+			return result;
+		}
+
+		let qwertyHash = getHash("qwerty");
+		document.write(`Список 2-значных паролей, имеющих одинаковый Хэш-код с "qwerty":\n`)
+		let n=1;
+		for (let i = 48; i < 123; i++) {
+			if (!((i > 57 && i < 65) || (i > 90 && i < 97))) {
+				for (let j = 48; j < 123; j++) {
+					if (!((j > 57 && j < 65) || (j > 90 && j < 97))) {
+						let str = String.fromCharCode(i) + String.fromCharCode(j);
+						if (getHash(str) == qwertyHash) {
+							document.write(`<br> ${n}. ${str}`);
+							n++;
+						}
+					}
+				}
+			}
+		}
+		//буду рада, если подскажите улучшения, выглядит нагруженно... 😬
+
+		
+
+	</script>
+</head>
+
+</html>

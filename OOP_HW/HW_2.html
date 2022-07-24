@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        class BankAccount {
+            constructor (id, bankUser, money, yearPercent) {
+                this.id = id;
+                this.bankUser = bankUser;
+                this.money = money;
+                this.yearPercent = yearPercent;
+            }
+            addMoney() {
+                this.money += giveFunds;
+                return this.money 
+            }
+            addPercents() {
+                this.money += (this.money / 100) * this.yearPercent;
+                return this.money;
+            }
+        }
+            const firstBankAccountUser = new BankAccount(4276, 'Evgeniy', 46000, 1);
+            const secondBankAccountUser = new BankAccount(2600, 'Julia', 50000, 8);
+            const thirdBankAccountUser = new BankAccount(1465, 'Mary', 12000, 7);
+            const fourthBankAccountUser = new BankAccount(0313, 'Andrey', 400000, 6);
+            const fifthBankAccountUser = new BankAccount(5556, 'Alexander', 30000, 5);
+
+    </script>
+</head>
+<body>
+    Создайте класс "банковский счёт", который имеет следующие атрибуты: номер; вкладчик; денежная сумма; годовой процент.
+     Добавьте методы осуществляющие следующие операции: внести средства; начислить проценты. 
+     Создайте массив элементов класса "банковский счёт"  
+</body>
+</html>

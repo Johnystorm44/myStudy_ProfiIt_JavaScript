@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function getHash(password, systemNumber) {
+            let sum = 0;
+            for (let i = 0; i < password.length; ++i) {
+                sum += password.charCodeAt(i);
+            }
+            sum %= 256;
+            return sum.toString(systemNumber);
+        }
+        let password = prompt('Введите пароль: ','');
+        let systemNumber = +prompt('Введите систему счисления: ','');
+
+        if(isNaN(systemNumber)) {
+            alert('Введите корректную систему счисления!');
+            throw new TypeError;
+        }
+
+        console.log(`Пароль: ${password}, Система счисления: ${systemNumber}, Хэш-код: ${getHash(password, systemNumber).toUpperCase()}`);
+
+    </script>
+</body>
+</html>

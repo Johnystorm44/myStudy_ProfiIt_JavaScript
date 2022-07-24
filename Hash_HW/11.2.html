@@ -1,0 +1,22 @@
+<html>
+
+<head>
+	<script>
+
+		function getHash(password, numberSystem) {
+			let sum = 0;
+			for (let i = 0; i < password.length; i++) {
+				sum += password.charCodeAt(i);
+			}
+			sum = sum % 256;
+			return sum.toString(numberSystem);
+		}
+
+		let password = `qwerty`;
+		let numberSystem = +16;
+		alert(`Пароль: ${password} \nСистема счисления: ${numberSystem} \nХэш-код: ${getHash(password, numberSystem).toUpperCase()}`);
+
+	</script>
+</head>
+
+</html>

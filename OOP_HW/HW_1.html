@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        class Worker {
+            constructor(name, surname, rate, days) {
+                this.name = name;
+                this.surname = surname;
+                this.rate = rate;
+                this.days = days;
+            }
+
+            getSalary() {
+                return  this.rate * this.days;
+            }
+        }
+        let workerName = prompt('Введите имя работника: ');
+        let workerSurname = prompt('Введите фамилию работника: ');
+        let workerRate = +prompt('Введите ставку за день работы: ');
+        let workerDays = +prompt('Введите количество рабочих дней сотрудника: ');
+
+        let realWorker = new Worker(workerName, workerSurname, workerRate, workerDays);
+
+        if(isNaN(workerRate) || isNaN(workerDays)) {
+            alert('Введены неправильные данные!!!');
+            throw new Error;
+        }
+
+        console.log("Имя сотрудника: " + realWorker.name + " " + "Фамилия сотрудника: " + realWorker.surname);
+        console.log("Зарпалата сотрудника: " + realWorker.getSalary() + 'р.');
+    </script>
+    Реализуйте класс Worker (Работник), который будет иметь следующие свойства: name (имя), surname (фамилия), rate (ставка за день работы), 
+    days (количество отработанных дней). Также класс должен иметь метод getSalary(), 
+    который будет выводить зарплату работника. Зарплата - это произведение (умножение) ставки rate на количество отработанных дней days.    
+</body>
+</html>
